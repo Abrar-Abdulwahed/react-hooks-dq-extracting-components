@@ -10,44 +10,24 @@ function App() {
       <nav>
         <h2>Contacts</h2>
         <ul className="contacts">
-          <li className="contact">
-            <div className="icon">A</div>
-            Angela
-          </li>
-          <li className="contact active">
-            <div className="icon">P</div>
-            Pamela
-          </li>
-          <li className="contact">
-            <div className="icon">S</div>
-            Sandra
-          </li>
-          <li className="contact">
-            <div className="icon">R</div>
-            Rita
-          </li>
+          {contacts.map(contact => 
+            <li className="contact" key={contact.id}>
+              <div className="icon">{contact.name.charAt(0)}</div>
+              {contact.name}
+            </li>
+          )}
         </ul>
       </nav>
       <main>
         <h2>Messages</h2>
         <section className="messages">
           <ul>
-            <li className="message sent">
-              <div className="icon">E</div>
-              <span className="content">One</span>
+          {messages.map(msg => 
+              <li className={`message ${msg.type}`} key={msg.id}>
+              <div className="icon">{msg.name.charAt(0)}</div>
+              <span className="content">{msg.content}</span>
             </li>
-            <li className="message received">
-              <div className="icon">P</div>
-              <span className="content">Two</span>
-            </li>
-            <li className="message sent">
-              <div className="icon">E</div>
-              <span className="content">Three four five</span>
-            </li>
-            <li className="message received">
-              <div className="icon">P</div>
-              <span className="content">🎺🎺🎺🎺🎺</span>
-            </li>
+          )}
           </ul>
         </section>
         <form className="message-form">
