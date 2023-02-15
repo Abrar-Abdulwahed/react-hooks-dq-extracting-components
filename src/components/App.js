@@ -1,8 +1,10 @@
 import React from "react";
 import { messages, contacts } from "../data";
+import Contact  from "./Contact";
+import Message from "./Message";
 
-console.log("Messages:", messages);
-console.log("Contacts:", contacts);
+// console.log("Messages:", messages);
+// console.log("Contacts:", contacts);
 
 function App() {
   return (
@@ -11,10 +13,7 @@ function App() {
         <h2>Contacts</h2>
         <ul className="contacts">
           {contacts.map(contact => 
-            <li className="contact" key={contact.id}>
-              <div className="icon">{contact.name.charAt(0)}</div>
-              {contact.name}
-            </li>
+            <Contact key={contact.id} name={contact.name} />
           )}
         </ul>
       </nav>
@@ -23,10 +22,7 @@ function App() {
         <section className="messages">
           <ul>
           {messages.map(msg => 
-              <li className={`message ${msg.type}`} key={msg.id}>
-              <div className="icon">{msg.name.charAt(0)}</div>
-              <span className="content">{msg.content}</span>
-            </li>
+              <Message key={msg.id} type={msg.type} name={msg.name} content={msg.content}/>
           )}
           </ul>
         </section>
