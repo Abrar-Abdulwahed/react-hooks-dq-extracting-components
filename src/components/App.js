@@ -12,8 +12,8 @@ function App() {
       <nav>
         <h2>Contacts</h2>
         <ul className="contacts">
-          {contacts.map(contact => 
-            <Contact key={contact.id} name={contact.name} />
+          {contacts.map((contact, index) => 
+            <Contact key={contact.id} index={index} name={contact.name} />
           )}
         </ul>
       </nav>
